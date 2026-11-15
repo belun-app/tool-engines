@@ -1,0 +1,48 @@
+name: Bug report
+description: A module returns a wrong result, throws, or hangs.
+labels: [bug]
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Module
+      description: The subpath you import.
+      placeholder: "@belun-app/tool-engines/convert/roman-numeral-converter"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: runtime
+    attributes:
+      label: Runtime
+      description: Browser and version, or Node version.
+      placeholder: "Node 22.11 / Chrome 131 / Safari 18"
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Code and input
+      description: The smallest call that shows the problem. Attach a file if the input is a PDF or an image.
+      render: js
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Returned value, error message or stack trace.
+    validations:
+      required: true

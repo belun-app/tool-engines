@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest an improvement to an existing module or a new option.
+labels: [enhancement]
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Module
+      description: The module this is about, if any.
+      placeholder: "@belun-app/tool-engines/math/loan-calculator"
+  - type: textarea
+    id: problem
+    attributes:
+      label: What do you need?
+      description: The problem you want to solve, with an example input and the output you would like.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered

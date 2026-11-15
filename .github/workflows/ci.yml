@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Lint, types, coverage, build, package checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      # --ignore-scripts skips the "prepare" build; this job builds once, explicitly, below.
+      - run: npm ci --ignore-scripts
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run coverage
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 14
+      - run: npm run build
+      - name: Pack once; publint and Are the types wrong? on the tarball
+        run: |
+          tarball="$(npm pack --ignore-scripts --silent | tail -n 1)"
+          npx publint --strict "$tarball"
+          npx attw "$tarball" --profile esm-only
+      - name: PDF interoperability (qpdf --check on merge/split/rotate outputs)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq qpdf
+          node scripts/pdf-interop.mjs interop-out
+          for f in interop-out/*.pdf; do
+            echo "qpdf --check $f"
+            qpdf --check "$f" > /dev/null
+          done
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: dist
+          path: dist/
+          retention-days: 3
+
+  test:
+    name: Test (Node ${{ matrix.node }})
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22, 24, 26]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      # --ignore-scripts: the "prepare" build is not needed here (built once in the build job).
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: dist
+          path: dist/
+      - name: Smoke test of the built package
+        run: npm run smoke

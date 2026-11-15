@@ -1,0 +1,740 @@
+{
+  "name": "@belun-app/tool-engines",
+  "version": "0.1.0",
+  "description": "Dependency-free TypeScript engines for in-browser tools: PDF merge, split and rotate, ZIP, EXIF removal, calculators, converters, text and developer utilities.",
+  "keywords": [
+    "typescript",
+    "browser",
+    "client-side",
+    "zero-dependencies",
+    "pdf",
+    "pdf-merge",
+    "pdf-parser",
+    "zip",
+    "exif",
+    "number-to-words",
+    "roman-numerals",
+    "unit-converter",
+    "calculator",
+    "text-tools",
+    "qr-code",
+    "barcode"
+  ],
+  "homepage": "https://belun.app/",
+  "bugs": {
+    "url": "https://github.com/belun-app/tool-engines/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belun-app/tool-engines.git"
+  },
+  "license": "MIT",
+  "author": "Dmitriy Semenkevich",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./bytes": {
+      "types": "./dist/_bytes.d.ts",
+      "default": "./dist/_bytes.js"
+    },
+    "./graphemes": {
+      "types": "./dist/_graphemes.d.ts",
+      "default": "./dist/_graphemes.js"
+    },
+    "./num": {
+      "types": "./dist/_num.d.ts",
+      "default": "./dist/_num.js"
+    },
+    "./plural": {
+      "types": "./dist/_plural.d.ts",
+      "default": "./dist/_plural.js"
+    },
+    "./random": {
+      "types": "./dist/_random.d.ts",
+      "default": "./dist/_random.js"
+    },
+    "./zip": {
+      "types": "./dist/_zip.d.ts",
+      "default": "./dist/_zip.js"
+    },
+    "./convert/base64-to-image": {
+      "types": "./dist/convert/base64-to-image.d.ts",
+      "default": "./dist/convert/base64-to-image.js"
+    },
+    "./convert/csv-to-json-converter": {
+      "types": "./dist/convert/csv-to-json-converter.d.ts",
+      "default": "./dist/convert/csv-to-json-converter.js"
+    },
+    "./convert/currency-converter": {
+      "types": "./dist/convert/currency-converter.d.ts",
+      "default": "./dist/convert/currency-converter.js"
+    },
+    "./convert/html-to-markdown": {
+      "types": "./dist/convert/html-to-markdown.d.ts",
+      "default": "./dist/convert/html-to-markdown.js"
+    },
+    "./convert/image-to-pdf": {
+      "types": "./dist/convert/image-to-pdf.d.ts",
+      "default": "./dist/convert/image-to-pdf.js"
+    },
+    "./convert/json-to-csv-converter": {
+      "types": "./dist/convert/json-to-csv-converter.d.ts",
+      "default": "./dist/convert/json-to-csv-converter.js"
+    },
+    "./convert/json-to-yaml-converter": {
+      "types": "./dist/convert/json-to-yaml-converter.d.ts",
+      "default": "./dist/convert/json-to-yaml-converter.js"
+    },
+    "./convert/morse-code-translator": {
+      "types": "./dist/convert/morse-code-translator.d.ts",
+      "default": "./dist/convert/morse-code-translator.js"
+    },
+    "./convert/number-to-words-converter": {
+      "types": "./dist/convert/number-to-words-converter.d.ts",
+      "default": "./dist/convert/number-to-words-converter.js"
+    },
+    "./convert/roman-numeral-converter": {
+      "types": "./dist/convert/roman-numeral-converter.d.ts",
+      "default": "./dist/convert/roman-numeral-converter.js"
+    },
+    "./convert/svg-to-png-converter": {
+      "types": "./dist/convert/svg-to-png-converter.d.ts",
+      "default": "./dist/convert/svg-to-png-converter.js"
+    },
+    "./convert/unit-converter": {
+      "types": "./dist/convert/unit-converter.d.ts",
+      "default": "./dist/convert/unit-converter.js"
+    },
+    "./convert/url-slug-generator": {
+      "types": "./dist/convert/url-slug-generator.d.ts",
+      "default": "./dist/convert/url-slug-generator.js"
+    },
+    "./dev/base64": {
+      "types": "./dist/dev/base64.d.ts",
+      "default": "./dist/dev/base64.js"
+    },
+    "./dev/chmod-calculator": {
+      "types": "./dist/dev/chmod-calculator.d.ts",
+      "default": "./dist/dev/chmod-calculator.js"
+    },
+    "./dev/color-contrast-checker": {
+      "types": "./dist/dev/color-contrast-checker.d.ts",
+      "default": "./dist/dev/color-contrast-checker.js"
+    },
+    "./dev/color-converter": {
+      "types": "./dist/dev/color-converter.d.ts",
+      "default": "./dist/dev/color-converter.js"
+    },
+    "./dev/color-palette-generator": {
+      "types": "./dist/dev/color-palette-generator.d.ts",
+      "default": "./dist/dev/color-palette-generator.js"
+    },
+    "./dev/credit-card-validator": {
+      "types": "./dist/dev/credit-card-validator.d.ts",
+      "default": "./dist/dev/credit-card-validator.js"
+    },
+    "./dev/cron-expression-generator": {
+      "types": "./dist/dev/cron-expression-generator.d.ts",
+      "default": "./dist/dev/cron-expression-generator.js"
+    },
+    "./dev/css-border-radius-generator": {
+      "types": "./dist/dev/css-border-radius-generator.d.ts",
+      "default": "./dist/dev/css-border-radius-generator.js"
+    },
+    "./dev/css-box-shadow-generator": {
+      "types": "./dist/dev/css-box-shadow-generator.d.ts",
+      "default": "./dist/dev/css-box-shadow-generator.js"
+    },
+    "./dev/css-flexbox-generator": {
+      "types": "./dist/dev/css-flexbox-generator.d.ts",
+      "default": "./dist/dev/css-flexbox-generator.js"
+    },
+    "./dev/css-gradient-generator": {
+      "types": "./dist/dev/css-gradient-generator.d.ts",
+      "default": "./dist/dev/css-gradient-generator.js"
+    },
+    "./dev/css-grid-generator": {
+      "types": "./dist/dev/css-grid-generator.d.ts",
+      "default": "./dist/dev/css-grid-generator.js"
+    },
+    "./dev/css-minifier": {
+      "types": "./dist/dev/css-minifier.d.ts",
+      "default": "./dist/dev/css-minifier.js"
+    },
+    "./dev/cubic-bezier-easing-generator": {
+      "types": "./dist/dev/cubic-bezier-easing-generator.d.ts",
+      "default": "./dist/dev/cubic-bezier-easing-generator.js"
+    },
+    "./dev/favicon-generator": {
+      "types": "./dist/dev/favicon-generator.d.ts",
+      "default": "./dist/dev/favicon-generator.js"
+    },
+    "./dev/hash-generator": {
+      "types": "./dist/dev/hash-generator.d.ts",
+      "default": "./dist/dev/hash-generator.js"
+    },
+    "./dev/html-entity-encoder": {
+      "types": "./dist/dev/html-entity-encoder.d.ts",
+      "default": "./dist/dev/html-entity-encoder.js"
+    },
+    "./dev/html-formatter": {
+      "types": "./dist/dev/html-formatter.d.ts",
+      "default": "./dist/dev/html-formatter.js"
+    },
+    "./dev/image-to-base64": {
+      "types": "./dist/dev/image-to-base64.d.ts",
+      "default": "./dist/dev/image-to-base64.js"
+    },
+    "./dev/ip-subnet-calculator": {
+      "types": "./dist/dev/ip-subnet-calculator.d.ts",
+      "default": "./dist/dev/ip-subnet-calculator.js"
+    },
+    "./dev/json-formatter": {
+      "types": "./dist/dev/json-formatter.d.ts",
+      "default": "./dist/dev/json-formatter.js"
+    },
+    "./dev/jwt-decoder": {
+      "types": "./dist/dev/jwt-decoder.d.ts",
+      "default": "./dist/dev/jwt-decoder.js"
+    },
+    "./dev/markdown-table-generator": {
+      "types": "./dist/dev/markdown-table-generator.d.ts",
+      "default": "./dist/dev/markdown-table-generator.js"
+    },
+    "./dev/number-base-converter": {
+      "types": "./dist/dev/number-base-converter.d.ts",
+      "default": "./dist/dev/number-base-converter.js"
+    },
+    "./dev/px-to-rem-converter": {
+      "types": "./dist/dev/px-to-rem-converter.d.ts",
+      "default": "./dist/dev/px-to-rem-converter.js"
+    },
+    "./dev/regex-tester": {
+      "types": "./dist/dev/regex-tester.d.ts",
+      "default": "./dist/dev/regex-tester.js"
+    },
+    "./dev/sql-formatter": {
+      "types": "./dist/dev/sql-formatter.d.ts",
+      "default": "./dist/dev/sql-formatter.js"
+    },
+    "./dev/text-encryption": {
+      "types": "./dist/dev/text-encryption.d.ts",
+      "default": "./dist/dev/text-encryption.js"
+    },
+    "./dev/text-to-binary": {
+      "types": "./dist/dev/text-to-binary.d.ts",
+      "default": "./dist/dev/text-to-binary.js"
+    },
+    "./dev/text-to-hex-converter": {
+      "types": "./dist/dev/text-to-hex-converter.d.ts",
+      "default": "./dist/dev/text-to-hex-converter.js"
+    },
+    "./dev/timestamp-converter": {
+      "types": "./dist/dev/timestamp-converter.d.ts",
+      "default": "./dist/dev/timestamp-converter.js"
+    },
+    "./dev/url-encoder": {
+      "types": "./dist/dev/url-encoder.d.ts",
+      "default": "./dist/dev/url-encoder.js"
+    },
+    "./dev/uuid-generator": {
+      "types": "./dist/dev/uuid-generator.d.ts",
+      "default": "./dist/dev/uuid-generator.js"
+    },
+    "./dev/xml-formatter": {
+      "types": "./dist/dev/xml-formatter.d.ts",
+      "default": "./dist/dev/xml-formatter.js"
+    },
+    "./file/file-hash-checker": {
+      "types": "./dist/file/file-hash-checker.d.ts",
+      "default": "./dist/file/file-hash-checker.js"
+    },
+    "./file/invoice-generator": {
+      "types": "./dist/file/invoice-generator.d.ts",
+      "default": "./dist/file/invoice-generator.js"
+    },
+    "./file/pdf-merger": {
+      "types": "./dist/file/pdf-merger.d.ts",
+      "default": "./dist/file/pdf-merger.js"
+    },
+    "./image/exif-metadata-remover": {
+      "types": "./dist/image/exif-metadata-remover.d.ts",
+      "default": "./dist/image/exif-metadata-remover.js"
+    },
+    "./image/heic-to-jpg-converter": {
+      "types": "./dist/image/heic-to-jpg-converter.d.ts",
+      "default": "./dist/image/heic-to-jpg-converter.js"
+    },
+    "./image/image-color-picker": {
+      "types": "./dist/image/image-color-picker.d.ts",
+      "default": "./dist/image/image-color-picker.js"
+    },
+    "./image/image-watermark-tool": {
+      "types": "./dist/image/image-watermark-tool.d.ts",
+      "default": "./dist/image/image-watermark-tool.js"
+    },
+    "./image/meme-generator": {
+      "types": "./dist/image/meme-generator.d.ts",
+      "default": "./dist/image/meme-generator.js"
+    },
+    "./image/merge-images": {
+      "types": "./dist/image/merge-images.d.ts",
+      "default": "./dist/image/merge-images.js"
+    },
+    "./image/online-signature": {
+      "types": "./dist/image/online-signature.d.ts",
+      "default": "./dist/image/online-signature.js"
+    },
+    "./image/rotate-flip-image": {
+      "types": "./dist/image/rotate-flip-image.d.ts",
+      "default": "./dist/image/rotate-flip-image.js"
+    },
+    "./math/age-calculator": {
+      "types": "./dist/math/age-calculator.d.ts",
+      "default": "./dist/math/age-calculator.js"
+    },
+    "./math/aspect-ratio-calculator": {
+      "types": "./dist/math/aspect-ratio-calculator.d.ts",
+      "default": "./dist/math/aspect-ratio-calculator.js"
+    },
+    "./math/bmi-calculator": {
+      "types": "./dist/math/bmi-calculator.d.ts",
+      "default": "./dist/math/bmi-calculator.js"
+    },
+    "./math/body-fat-calculator": {
+      "types": "./dist/math/body-fat-calculator.d.ts",
+      "default": "./dist/math/body-fat-calculator.js"
+    },
+    "./math/burn-rate-calculator": {
+      "types": "./dist/math/burn-rate-calculator.d.ts",
+      "default": "./dist/math/burn-rate-calculator.js"
+    },
+    "./math/calorie-calculator": {
+      "types": "./dist/math/calorie-calculator.d.ts",
+      "default": "./dist/math/calorie-calculator.js"
+    },
+    "./math/compound-interest-calculator": {
+      "types": "./dist/math/compound-interest-calculator.d.ts",
+      "default": "./dist/math/compound-interest-calculator.js"
+    },
+    "./math/date-calculator": {
+      "types": "./dist/math/date-calculator.d.ts",
+      "default": "./dist/math/date-calculator.js"
+    },
+    "./math/days-between-dates-calculator": {
+      "types": "./dist/math/days-between-dates-calculator.d.ts",
+      "default": "./dist/math/days-between-dates-calculator.js"
+    },
+    "./math/discount-calculator": {
+      "types": "./dist/math/discount-calculator.d.ts",
+      "default": "./dist/math/discount-calculator.js"
+    },
+    "./math/fraction-calculator": {
+      "types": "./dist/math/fraction-calculator.d.ts",
+      "default": "./dist/math/fraction-calculator.js"
+    },
+    "./math/gpa-calculator": {
+      "types": "./dist/math/gpa-calculator.d.ts",
+      "default": "./dist/math/gpa-calculator.js"
+    },
+    "./math/grade-calculator": {
+      "types": "./dist/math/grade-calculator.d.ts",
+      "default": "./dist/math/grade-calculator.js"
+    },
+    "./math/loan-calculator": {
+      "types": "./dist/math/loan-calculator.d.ts",
+      "default": "./dist/math/loan-calculator.js"
+    },
+    "./math/mortgage-calculator": {
+      "types": "./dist/math/mortgage-calculator.d.ts",
+      "default": "./dist/math/mortgage-calculator.js"
+    },
+    "./math/ovulation-calculator": {
+      "types": "./dist/math/ovulation-calculator.d.ts",
+      "default": "./dist/math/ovulation-calculator.js"
+    },
+    "./math/pace-calculator": {
+      "types": "./dist/math/pace-calculator.d.ts",
+      "default": "./dist/math/pace-calculator.js"
+    },
+    "./math/percentage-calculator": {
+      "types": "./dist/math/percentage-calculator.d.ts",
+      "default": "./dist/math/percentage-calculator.js"
+    },
+    "./math/pregnancy-due-date-calculator": {
+      "types": "./dist/math/pregnancy-due-date-calculator.d.ts",
+      "default": "./dist/math/pregnancy-due-date-calculator.js"
+    },
+    "./math/salary-to-hourly-calculator": {
+      "types": "./dist/math/salary-to-hourly-calculator.d.ts",
+      "default": "./dist/math/salary-to-hourly-calculator.js"
+    },
+    "./math/sales-tax-calculator": {
+      "types": "./dist/math/sales-tax-calculator.d.ts",
+      "default": "./dist/math/sales-tax-calculator.js"
+    },
+    "./math/scientific-calculator": {
+      "types": "./dist/math/scientific-calculator.d.ts",
+      "default": "./dist/math/scientific-calculator.js"
+    },
+    "./math/sleep-calculator": {
+      "types": "./dist/math/sleep-calculator.d.ts",
+      "default": "./dist/math/sleep-calculator.js"
+    },
+    "./math/square-footage-calculator": {
+      "types": "./dist/math/square-footage-calculator.d.ts",
+      "default": "./dist/math/square-footage-calculator.js"
+    },
+    "./math/statistics-calculator": {
+      "types": "./dist/math/statistics-calculator.d.ts",
+      "default": "./dist/math/statistics-calculator.js"
+    },
+    "./math/time-card-calculator": {
+      "types": "./dist/math/time-card-calculator.d.ts",
+      "default": "./dist/math/time-card-calculator.js"
+    },
+    "./math/time-duration-calculator": {
+      "types": "./dist/math/time-duration-calculator.d.ts",
+      "default": "./dist/math/time-duration-calculator.js"
+    },
+    "./math/tip-calculator": {
+      "types": "./dist/math/tip-calculator.d.ts",
+      "default": "./dist/math/tip-calculator.js"
+    },
+    "./math/triangle": {
+      "types": "./dist/math/triangle.d.ts",
+      "default": "./dist/math/triangle.js"
+    },
+    "./media/audio-trimmer": {
+      "types": "./dist/media/audio-trimmer.d.ts",
+      "default": "./dist/media/audio-trimmer.js"
+    },
+    "./media/online-metronome": {
+      "types": "./dist/media/online-metronome.d.ts",
+      "default": "./dist/media/online-metronome.js"
+    },
+    "./media/online-tone-generator": {
+      "types": "./dist/media/online-tone-generator.d.ts",
+      "default": "./dist/media/online-tone-generator.js"
+    },
+    "./media/voice-recorder": {
+      "types": "./dist/media/voice-recorder.d.ts",
+      "default": "./dist/media/voice-recorder.js"
+    },
+    "./media/youtube-thumbnail-downloader": {
+      "types": "./dist/media/youtube-thumbnail-downloader.d.ts",
+      "default": "./dist/media/youtube-thumbnail-downloader.js"
+    },
+    "./pdf/pdf-lib": {
+      "types": "./dist/pdf/_pdf-lib.d.ts",
+      "default": "./dist/pdf/_pdf-lib.js"
+    },
+    "./pdf/add-page-numbers-to-pdf": {
+      "types": "./dist/pdf/add-page-numbers-to-pdf.d.ts",
+      "default": "./dist/pdf/add-page-numbers-to-pdf.js"
+    },
+    "./pdf/compress-pdf": {
+      "types": "./dist/pdf/compress-pdf.d.ts",
+      "default": "./dist/pdf/compress-pdf.js"
+    },
+    "./pdf/delete-pages-from-pdf": {
+      "types": "./dist/pdf/delete-pages-from-pdf.d.ts",
+      "default": "./dist/pdf/delete-pages-from-pdf.js"
+    },
+    "./pdf/pdf-page-rotator": {
+      "types": "./dist/pdf/pdf-page-rotator.d.ts",
+      "default": "./dist/pdf/pdf-page-rotator.js"
+    },
+    "./pdf/pdf-splitter": {
+      "types": "./dist/pdf/pdf-splitter.d.ts",
+      "default": "./dist/pdf/pdf-splitter.js"
+    },
+    "./pdf/pdf-to-jpg": {
+      "types": "./dist/pdf/pdf-to-jpg.d.ts",
+      "default": "./dist/pdf/pdf-to-jpg.js"
+    },
+    "./pdf/pdf-to-word": {
+      "types": "./dist/pdf/pdf-to-word.d.ts",
+      "default": "./dist/pdf/pdf-to-word.js"
+    },
+    "./pdf/reorder-pdf-pages": {
+      "types": "./dist/pdf/reorder-pdf-pages.d.ts",
+      "default": "./dist/pdf/reorder-pdf-pages.js"
+    },
+    "./pdf/sign-pdf": {
+      "types": "./dist/pdf/sign-pdf.d.ts",
+      "default": "./dist/pdf/sign-pdf.js"
+    },
+    "./pdf/word-to-pdf": {
+      "types": "./dist/pdf/word-to-pdf.d.ts",
+      "default": "./dist/pdf/word-to-pdf.js"
+    },
+    "./seo/keyword-density-checker": {
+      "types": "./dist/seo/keyword-density-checker.d.ts",
+      "default": "./dist/seo/keyword-density-checker.js"
+    },
+    "./seo/meta-tag-generator": {
+      "types": "./dist/seo/meta-tag-generator.d.ts",
+      "default": "./dist/seo/meta-tag-generator.js"
+    },
+    "./seo/robots-txt-generator": {
+      "types": "./dist/seo/robots-txt-generator.d.ts",
+      "default": "./dist/seo/robots-txt-generator.js"
+    },
+    "./seo/serp-snippet-preview": {
+      "types": "./dist/seo/serp-snippet-preview.d.ts",
+      "default": "./dist/seo/serp-snippet-preview.js"
+    },
+    "./seo/utm-campaign-url-builder": {
+      "types": "./dist/seo/utm-campaign-url-builder.d.ts",
+      "default": "./dist/seo/utm-campaign-url-builder.js"
+    },
+    "./seo/xml-sitemap-generator": {
+      "types": "./dist/seo/xml-sitemap-generator.d.ts",
+      "default": "./dist/seo/xml-sitemap-generator.js"
+    },
+    "./system/dead-pixel-test": {
+      "types": "./dist/system/dead-pixel-test.d.ts",
+      "default": "./dist/system/dead-pixel-test.js"
+    },
+    "./system/gamepad-tester": {
+      "types": "./dist/system/gamepad-tester.d.ts",
+      "default": "./dist/system/gamepad-tester.js"
+    },
+    "./system/keyboard-tester": {
+      "types": "./dist/system/keyboard-tester.d.ts",
+      "default": "./dist/system/keyboard-tester.js"
+    },
+    "./system/microphone-test": {
+      "types": "./dist/system/microphone-test.d.ts",
+      "default": "./dist/system/microphone-test.js"
+    },
+    "./system/webcam-test": {
+      "types": "./dist/system/webcam-test.d.ts",
+      "default": "./dist/system/webcam-test.js"
+    },
+    "./text/hunspell": {
+      "types": "./dist/text/_hunspell.d.ts",
+      "default": "./dist/text/_hunspell.js"
+    },
+    "./text/stop-words": {
+      "types": "./dist/text/_stop-words.d.ts",
+      "default": "./dist/text/_stop-words.js"
+    },
+    "./text/text-stats": {
+      "types": "./dist/text/_text-stats.d.ts",
+      "default": "./dist/text/_text-stats.js"
+    },
+    "./text/ai-text-cleaner": {
+      "types": "./dist/text/ai-text-cleaner.d.ts",
+      "default": "./dist/text/ai-text-cleaner.js"
+    },
+    "./text/character-counter": {
+      "types": "./dist/text/character-counter.d.ts",
+      "default": "./dist/text/character-counter.js"
+    },
+    "./text/fancy-text-generator": {
+      "types": "./dist/text/fancy-text-generator.d.ts",
+      "default": "./dist/text/fancy-text-generator.js"
+    },
+    "./text/find-and-replace-text": {
+      "types": "./dist/text/find-and-replace-text.d.ts",
+      "default": "./dist/text/find-and-replace-text.js"
+    },
+    "./text/grammar-checker": {
+      "types": "./dist/text/grammar-checker.d.ts",
+      "default": "./dist/text/grammar-checker.js"
+    },
+    "./text/lorem-ipsum-generator": {
+      "types": "./dist/text/lorem-ipsum-generator.d.ts",
+      "default": "./dist/text/lorem-ipsum-generator.js"
+    },
+    "./text/markdown-to-html": {
+      "types": "./dist/text/markdown-to-html.d.ts",
+      "default": "./dist/text/markdown-to-html.js"
+    },
+    "./text/plagiarism-checker": {
+      "types": "./dist/text/plagiarism-checker.d.ts",
+      "default": "./dist/text/plagiarism-checker.js"
+    },
+    "./text/readability-checker": {
+      "types": "./dist/text/readability-checker.d.ts",
+      "default": "./dist/text/readability-checker.js"
+    },
+    "./text/remove-line-breaks": {
+      "types": "./dist/text/remove-line-breaks.d.ts",
+      "default": "./dist/text/remove-line-breaks.js"
+    },
+    "./text/spell-checker": {
+      "types": "./dist/text/spell-checker.d.ts",
+      "default": "./dist/text/spell-checker.js"
+    },
+    "./text/text-case-converter": {
+      "types": "./dist/text/text-case-converter.d.ts",
+      "default": "./dist/text/text-case-converter.js"
+    },
+    "./text/text-diff": {
+      "types": "./dist/text/text-diff.d.ts",
+      "default": "./dist/text/text-diff.js"
+    },
+    "./text/text-line-sorter": {
+      "types": "./dist/text/text-line-sorter.d.ts",
+      "default": "./dist/text/text-line-sorter.js"
+    },
+    "./text/text-repeater": {
+      "types": "./dist/text/text-repeater.d.ts",
+      "default": "./dist/text/text-repeater.js"
+    },
+    "./text/text-reverser": {
+      "types": "./dist/text/text-reverser.d.ts",
+      "default": "./dist/text/text-reverser.js"
+    },
+    "./text/text-to-ascii-art-generator": {
+      "types": "./dist/text/text-to-ascii-art-generator.d.ts",
+      "default": "./dist/text/text-to-ascii-art-generator.js"
+    },
+    "./text/whitespace-remover": {
+      "types": "./dist/text/whitespace-remover.d.ts",
+      "default": "./dist/text/whitespace-remover.js"
+    },
+    "./text/word-counter": {
+      "types": "./dist/text/word-counter.d.ts",
+      "default": "./dist/text/word-counter.js"
+    },
+    "./text/word-frequency-counter": {
+      "types": "./dist/text/word-frequency-counter.d.ts",
+      "default": "./dist/text/word-frequency-counter.js"
+    },
+    "./text/words-to-minutes-calculator": {
+      "types": "./dist/text/words-to-minutes-calculator.d.ts",
+      "default": "./dist/text/words-to-minutes-calculator.js"
+    },
+    "./utility/barcode-generator": {
+      "types": "./dist/utility/barcode-generator.d.ts",
+      "default": "./dist/utility/barcode-generator.js"
+    },
+    "./utility/chess-clock": {
+      "types": "./dist/utility/chess-clock.d.ts",
+      "default": "./dist/utility/chess-clock.js"
+    },
+    "./utility/click-speed-test": {
+      "types": "./dist/utility/click-speed-test.d.ts",
+      "default": "./dist/utility/click-speed-test.js"
+    },
+    "./utility/coin-flip": {
+      "types": "./dist/utility/coin-flip.d.ts",
+      "default": "./dist/utility/coin-flip.js"
+    },
+    "./utility/dice-roller": {
+      "types": "./dist/utility/dice-roller.d.ts",
+      "default": "./dist/utility/dice-roller.js"
+    },
+    "./utility/emoji-picker": {
+      "types": "./dist/utility/emoji-picker.d.ts",
+      "default": "./dist/utility/emoji-picker.js"
+    },
+    "./utility/password-strength-checker": {
+      "types": "./dist/utility/password-strength-checker.d.ts",
+      "default": "./dist/utility/password-strength-checker.js"
+    },
+    "./utility/pomodoro-timer": {
+      "types": "./dist/utility/pomodoro-timer.d.ts",
+      "default": "./dist/utility/pomodoro-timer.js"
+    },
+    "./utility/qr-code-generator": {
+      "types": "./dist/utility/qr-code-generator.d.ts",
+      "default": "./dist/utility/qr-code-generator.js"
+    },
+    "./utility/random-name-picker": {
+      "types": "./dist/utility/random-name-picker.d.ts",
+      "default": "./dist/utility/random-name-picker.js"
+    },
+    "./utility/random-number-generator": {
+      "types": "./dist/utility/random-number-generator.d.ts",
+      "default": "./dist/utility/random-number-generator.js"
+    },
+    "./utility/random-password-generator": {
+      "types": "./dist/utility/random-password-generator.d.ts",
+      "default": "./dist/utility/random-password-generator.js"
+    },
+    "./utility/speech-to-text": {
+      "types": "./dist/utility/speech-to-text.d.ts",
+      "default": "./dist/utility/speech-to-text.js"
+    },
+    "./utility/spin-the-wheel": {
+      "types": "./dist/utility/spin-the-wheel.d.ts",
+      "default": "./dist/utility/spin-the-wheel.js"
+    },
+    "./utility/stopwatch-timer": {
+      "types": "./dist/utility/stopwatch-timer.d.ts",
+      "default": "./dist/utility/stopwatch-timer.js"
+    },
+    "./utility/text-to-speech": {
+      "types": "./dist/utility/text-to-speech.d.ts",
+      "default": "./dist/utility/text-to-speech.js"
+    },
+    "./utility/timezone-converter": {
+      "types": "./dist/utility/timezone-converter.d.ts",
+      "default": "./dist/utility/timezone-converter.js"
+    },
+    "./utility/typing-speed-test": {
+      "types": "./dist/utility/typing-speed-test.d.ts",
+      "default": "./dist/utility/typing-speed-test.js"
+    },
+    "./utility/what-is-my-screen-resolution": {
+      "types": "./dist/utility/what-is-my-screen-resolution.d.ts",
+      "default": "./dist/utility/what-is-my-screen-resolution.js"
+    },
+    "./utility/what-is-my-user-agent": {
+      "types": "./dist/utility/what-is-my-user-agent.d.ts",
+      "default": "./dist/utility/what-is-my-user-agent.js"
+    },
+    "./utility/word-cloud-generator": {
+      "types": "./dist/utility/word-cloud-generator.d.ts",
+      "default": "./dist/utility/word-cloud-generator.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!src/**/*.test.ts",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepare": "npm run build",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "biome check .",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "smoke": "node scripts/smoke-node.mjs",
+    "check:package": "publint --strict && attw --pack . --profile esm-only",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm test && npm run build && npm run smoke && npm run check:package"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
+    "@biomejs/biome": "1.9.4",
+    "@types/node": "^22.19.0",
+    "@vitest/coverage-v8": "4.1.12",
+    "dictionary-en": "4.0.0",
+    "dictionary-ru": "3.0.0",
+    "pdf-lib": "1.17.1",
+    "publint": "0.3.25",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
