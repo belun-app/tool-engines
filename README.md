@@ -38,8 +38,8 @@ Every file in `dist/` is a standalone ES module with relative imports, so a CDN 
 
 ```html
 <script type="module">
-  import { arabicToRoman } from "https://cdn.jsdelivr.net/npm/@belun-app/tool-engines@0.1.0/dist/convert/roman-numeral-converter.js";
-  // or: import { arabicToRoman } from "https://esm.sh/@belun-app/tool-engines@0.1.0/convert/roman-numeral-converter";
+  import { arabicToRoman } from "https://cdn.jsdelivr.net/npm/@belun-app/tool-engines@0.1.1/dist/convert/roman-numeral-converter.js";
+  // or: import { arabicToRoman } from "https://esm.sh/@belun-app/tool-engines@0.1.1/convert/roman-numeral-converter";
   console.log(arabicToRoman(1999).roman); // "MCMXCIX"
 </script>
 ```

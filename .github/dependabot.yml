@@ -7,6 +7,11 @@ updates:
     groups:
       dev-dependencies:
         dependency-type: development
+    # Major versions of the toolchain (TypeScript, Biome, Vitest) need config and code
+    # changes; they are upgraded by hand in the source repository.
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule:

@@ -5,7 +5,7 @@
  */
 
 /** The version of this package. */
-export const version = "0.1.0";
+export const version = "0.1.1";
 
 /** Every module subpath: `import("@belun-app/tool-engines/" + subpath)`. */
 export const modules = [

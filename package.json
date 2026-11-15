@@ -1,6 +1,6 @@
 {
   "name": "@belun-app/tool-engines",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dependency-free TypeScript engines for in-browser tools: PDF merge, split and rotate, ZIP, EXIF removal, calculators, converters, text and developer utilities.",
   "keywords": [
     "typescript",
