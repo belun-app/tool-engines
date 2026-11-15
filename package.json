@@ -724,15 +724,15 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
-    "@biomejs/biome": "1.9.4",
-    "@types/node": "^22.19.0",
-    "@vitest/coverage-v8": "4.1.12",
+    "@biomejs/biome": "2.6.7",
+    "@types/node": "^26.6.6",
+    "@vitest/coverage-v8": "5.1.0",
     "dictionary-en": "4.0.0",
     "dictionary-ru": "3.0.0",
     "pdf-lib": "1.17.1",
     "publint": "0.3.25",
-    "typescript": "5.9.3",
-    "vitest": "4.1.12"
+    "typescript": "7.0.2",
+    "vitest": "5.1.0"
   },
   "publishConfig": {
     "access": "public"
